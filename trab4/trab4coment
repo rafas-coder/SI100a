@@ -1,0 +1,668 @@
+	.file	"trab4comentado.c"
+	.text
+	.section	.rodata
+.LC1:
+	.string	"%d"
+.LC2:
+	.string	"Alternativa correta eh %d?\n"
+.LC3:
+	.string	"SIM\n"
+	.text
+	.globl	INT
+	.type	INT, @function
+INT:
+.LFB0:
+	.cfi_startproc
+	endbr64
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%rbx
+	subq	$264, %rsp
+	.cfi_offset 3, -24
+	movq	%rdi, -264(%rbp)
+	movq	%rsi, -272(%rbp)
+	movq	%fs:40, %rax
+	movq	%rax, -24(%rbp)
+	xorl	%eax, %eax
+	movl	$0, -176(%rbp)
+	pxor	%xmm0, %xmm0
+	movsd	%xmm0, -40(%rbp)
+	movq	-272(%rbp), %rax
+	leaq	-176(%rbp), %rdx
+	addq	$4, %rdx
+	movq	%rax, %rsi
+	movq	%rdx, %rdi
+	call	strcpy@PLT
+	movl	$0, -244(%rbp)
+	jmp	.L2
+.L3:
+	leaq	-240(%rbp), %rax
+	movl	-244(%rbp), %edx
+	movslq	%edx, %rdx
+	salq	$2, %rdx
+	addq	%rdx, %rax
+	movq	%rax, %rsi
+	leaq	.LC1(%rip), %rdi
+	movl	$0, %eax
+	call	__isoc99_scanf@PLT
+	addl	$1, -244(%rbp)
+.L2:
+	cmpl	$2, -244(%rbp)
+	jle	.L3
+	movq	stdin(%rip), %rcx
+	leaq	-208(%rbp), %rsi
+	movl	-244(%rbp), %eax
+	movslq	%eax, %rdx
+	movq	%rdx, %rax
+	salq	$2, %rax
+	addq	%rdx, %rax
+	addq	%rax, %rax
+	addq	%rsi, %rax
+	movq	%rcx, %rdx
+	movl	$9, %esi
+	movq	%rax, %rdi
+	call	fgets@PLT
+	movl	$0, -244(%rbp)
+	jmp	.L4
+.L7:
+	movq	stdin(%rip), %rcx
+	leaq	-208(%rbp), %rsi
+	movl	-244(%rbp), %eax
+	movslq	%eax, %rdx
+	movq	%rdx, %rax
+	salq	$2, %rax
+	addq	%rdx, %rax
+	addq	%rax, %rax
+	addq	%rsi, %rax
+	movq	%rcx, %rdx
+	movl	$9, %esi
+	movq	%rax, %rdi
+	call	fgets@PLT
+	movl	-244(%rbp), %eax
+	cltq
+	movl	-240(%rbp,%rax,4), %eax
+	movl	%eax, %esi
+	leaq	.LC2(%rip), %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	leaq	-208(%rbp), %rcx
+	movl	-244(%rbp), %eax
+	movslq	%eax, %rdx
+	movq	%rdx, %rax
+	salq	$2, %rax
+	addq	%rdx, %rax
+	addq	%rax, %rax
+	addq	%rcx, %rax
+	leaq	.LC3(%rip), %rsi
+	movq	%rax, %rdi
+	call	strcmp@PLT
+	testl	%eax, %eax
+	jne	.L5
+	movl	-244(%rbp), %eax
+	cltq
+	movl	-240(%rbp,%rax,4), %eax
+	movl	%eax, -48(%rbp)
+	movq	-264(%rbp), %rax
+	movq	-176(%rbp), %rcx
+	movq	-168(%rbp), %rbx
+	movq	%rcx, (%rax)
+	movq	%rbx, 8(%rax)
+	movq	-160(%rbp), %rcx
+	movq	-152(%rbp), %rbx
+	movq	%rcx, 16(%rax)
+	movq	%rbx, 24(%rax)
+	movq	-144(%rbp), %rcx
+	movq	-136(%rbp), %rbx
+	movq	%rcx, 32(%rax)
+	movq	%rbx, 40(%rax)
+	movq	-128(%rbp), %rcx
+	movq	-120(%rbp), %rbx
+	movq	%rcx, 48(%rax)
+	movq	%rbx, 56(%rax)
+	movq	-112(%rbp), %rcx
+	movq	-104(%rbp), %rbx
+	movq	%rcx, 64(%rax)
+	movq	%rbx, 72(%rax)
+	movq	-96(%rbp), %rcx
+	movq	-88(%rbp), %rbx
+	movq	%rcx, 80(%rax)
+	movq	%rbx, 88(%rax)
+	movq	-80(%rbp), %rcx
+	movq	-72(%rbp), %rbx
+	movq	%rcx, 96(%rax)
+	movq	%rbx, 104(%rax)
+	movq	-64(%rbp), %rcx
+	movq	-56(%rbp), %rbx
+	movq	%rcx, 112(%rax)
+	movq	%rbx, 120(%rax)
+	movq	-48(%rbp), %rcx
+	movq	-40(%rbp), %rbx
+	movq	%rcx, 128(%rax)
+	movq	%rbx, 136(%rax)
+	jmp	.L1
+.L5:
+	addl	$1, -244(%rbp)
+.L4:
+	cmpl	$2, -244(%rbp)
+	jle	.L7
+	nop
+.L1:
+	movq	-24(%rbp), %rax
+	xorq	%fs:40, %rax
+	je	.L8
+	call	__stack_chk_fail@PLT
+.L8:
+	movq	-264(%rbp), %rax
+	addq	$264, %rsp
+	popq	%rbx
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	INT, .-INT
+	.section	.rodata
+.LC4:
+	.string	"%lf"
+	.align 8
+.LC5:
+	.string	"Alternativa correta eh %.2lf?\n"
+	.text
+	.globl	FLOAT
+	.type	FLOAT, @function
+FLOAT:
+.LFB1:
+	.cfi_startproc
+	endbr64
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%rbx
+	subq	$296, %rsp
+	.cfi_offset 3, -24
+	movq	%rdi, -296(%rbp)
+	movq	%rsi, -304(%rbp)
+	movq	%fs:40, %rax
+	movq	%rax, -24(%rbp)
+	xorl	%eax, %eax
+	movl	$1, -176(%rbp)
+	movl	$0, -48(%rbp)
+	movq	-304(%rbp), %rax
+	leaq	-176(%rbp), %rdx
+	addq	$4, %rdx
+	movq	%rax, %rsi
+	movq	%rdx, %rdi
+	call	strcpy@PLT
+	movl	$0, -276(%rbp)
+	jmp	.L10
+.L11:
+	leaq	-224(%rbp), %rax
+	movl	-276(%rbp), %edx
+	movslq	%edx, %rdx
+	salq	$3, %rdx
+	addq	%rdx, %rax
+	movq	%rax, %rsi
+	leaq	.LC4(%rip), %rdi
+	movl	$0, %eax
+	call	__isoc99_scanf@PLT
+	addl	$1, -276(%rbp)
+.L10:
+	cmpl	$2, -276(%rbp)
+	jle	.L11
+	movq	stdin(%rip), %rcx
+	leaq	-272(%rbp), %rsi
+	movl	-276(%rbp), %eax
+	movslq	%eax, %rdx
+	movq	%rdx, %rax
+	salq	$2, %rax
+	addq	%rdx, %rax
+	addq	%rax, %rax
+	addq	%rdx, %rax
+	addq	%rsi, %rax
+	movq	%rcx, %rdx
+	movl	$9, %esi
+	movq	%rax, %rdi
+	call	fgets@PLT
+	movl	$0, -276(%rbp)
+	jmp	.L12
+.L15:
+	movl	-276(%rbp), %eax
+	cltq
+	movq	-224(%rbp,%rax,8), %rax
+	movq	%rax, %xmm0
+	leaq	.LC5(%rip), %rdi
+	movl	$1, %eax
+	call	printf@PLT
+	movq	stdin(%rip), %rcx
+	leaq	-272(%rbp), %rsi
+	movl	-276(%rbp), %eax
+	movslq	%eax, %rdx
+	movq	%rdx, %rax
+	salq	$2, %rax
+	addq	%rdx, %rax
+	addq	%rax, %rax
+	addq	%rdx, %rax
+	addq	%rsi, %rax
+	movq	%rcx, %rdx
+	movl	$10, %esi
+	movq	%rax, %rdi
+	call	fgets@PLT
+	leaq	-272(%rbp), %rcx
+	movl	-276(%rbp), %eax
+	movslq	%eax, %rdx
+	movq	%rdx, %rax
+	salq	$2, %rax
+	addq	%rdx, %rax
+	addq	%rax, %rax
+	addq	%rdx, %rax
+	addq	%rcx, %rax
+	leaq	.LC3(%rip), %rsi
+	movq	%rax, %rdi
+	call	strcmp@PLT
+	testl	%eax, %eax
+	jne	.L13
+	movl	-276(%rbp), %eax
+	cltq
+	movsd	-224(%rbp,%rax,8), %xmm0
+	movsd	%xmm0, -40(%rbp)
+	movq	-296(%rbp), %rax
+	movq	-176(%rbp), %rcx
+	movq	-168(%rbp), %rbx
+	movq	%rcx, (%rax)
+	movq	%rbx, 8(%rax)
+	movq	-160(%rbp), %rcx
+	movq	-152(%rbp), %rbx
+	movq	%rcx, 16(%rax)
+	movq	%rbx, 24(%rax)
+	movq	-144(%rbp), %rcx
+	movq	-136(%rbp), %rbx
+	movq	%rcx, 32(%rax)
+	movq	%rbx, 40(%rax)
+	movq	-128(%rbp), %rcx
+	movq	-120(%rbp), %rbx
+	movq	%rcx, 48(%rax)
+	movq	%rbx, 56(%rax)
+	movq	-112(%rbp), %rcx
+	movq	-104(%rbp), %rbx
+	movq	%rcx, 64(%rax)
+	movq	%rbx, 72(%rax)
+	movq	-96(%rbp), %rcx
+	movq	-88(%rbp), %rbx
+	movq	%rcx, 80(%rax)
+	movq	%rbx, 88(%rax)
+	movq	-80(%rbp), %rcx
+	movq	-72(%rbp), %rbx
+	movq	%rcx, 96(%rax)
+	movq	%rbx, 104(%rax)
+	movq	-64(%rbp), %rcx
+	movq	-56(%rbp), %rbx
+	movq	%rcx, 112(%rax)
+	movq	%rbx, 120(%rax)
+	movq	-48(%rbp), %rcx
+	movq	-40(%rbp), %rbx
+	movq	%rcx, 128(%rax)
+	movq	%rbx, 136(%rax)
+	jmp	.L9
+.L13:
+	addl	$1, -276(%rbp)
+.L12:
+	cmpl	$2, -276(%rbp)
+	jle	.L15
+	nop
+.L9:
+	movq	-24(%rbp), %rax
+	xorq	%fs:40, %rax
+	je	.L16
+	call	__stack_chk_fail@PLT
+.L16:
+	movq	-296(%rbp), %rax
+	addq	$296, %rsp
+	popq	%rbx
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE1:
+	.size	FLOAT, .-FLOAT
+	.section	.rodata
+.LC6:
+	.string	"---Etapa de treinamento---"
+.LC7:
+	.string	"INT\n"
+.LC8:
+	.string	"FLOAT\n"
+.LC9:
+	.string	"FIM\n"
+.LC10:
+	.string	"---Etapa de testes---"
+	.align 8
+.LC11:
+	.string	"Me desculpe, ainda n\303\243o fui treinado para responder essa pergunta."
+.LC12:
+	.string	"A resposta eh: %d\n"
+.LC13:
+	.string	"A resposta eh: %.2f\n"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB2:
+	.cfi_startproc
+	endbr64
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%rbx
+	subq	$1032, %rsp
+	.cfi_offset 3, -24
+	movq	%fs:40, %rax
+	movq	%rax, -24(%rbp)
+	xorl	%eax, %eax
+	movl	$0, -888(%rbp)
+	movl	$0, -884(%rbp)
+	leaq	.LC6(%rip), %rdi
+	call	puts@PLT
+	movq	stdin(%rip), %rdx
+	leaq	-160(%rbp), %rax
+	movl	$120, %esi
+	movq	%rax, %rdi
+	call	fgets@PLT
+	jmp	.L18
+.L21:
+	leaq	-160(%rbp), %rax
+	leaq	.LC7(%rip), %rsi
+	movq	%rax, %rdi
+	call	strcmp@PLT
+	testl	%eax, %eax
+	jne	.L19
+	movq	stdin(%rip), %rdx
+	leaq	-160(%rbp), %rax
+	movl	$120, %esi
+	movq	%rax, %rdi
+	call	fgets@PLT
+	movl	-888(%rbp), %eax
+	movslq	%eax, %rdx
+	movq	%rdx, %rax
+	salq	$3, %rax
+	addq	%rdx, %rax
+	salq	$4, %rax
+	leaq	-16(%rbp), %rcx
+	addq	%rcx, %rax
+	leaq	-864(%rax), %rbx
+	leaq	-1040(%rbp), %rax
+	leaq	-160(%rbp), %rdx
+	movq	%rdx, %rsi
+	movq	%rax, %rdi
+	call	INT
+	movq	-1040(%rbp), %rax
+	movq	-1032(%rbp), %rdx
+	movq	%rax, (%rbx)
+	movq	%rdx, 8(%rbx)
+	movq	-1024(%rbp), %rax
+	movq	-1016(%rbp), %rdx
+	movq	%rax, 16(%rbx)
+	movq	%rdx, 24(%rbx)
+	movq	-1008(%rbp), %rax
+	movq	-1000(%rbp), %rdx
+	movq	%rax, 32(%rbx)
+	movq	%rdx, 40(%rbx)
+	movq	-992(%rbp), %rax
+	movq	-984(%rbp), %rdx
+	movq	%rax, 48(%rbx)
+	movq	%rdx, 56(%rbx)
+	movq	-976(%rbp), %rax
+	movq	-968(%rbp), %rdx
+	movq	%rax, 64(%rbx)
+	movq	%rdx, 72(%rbx)
+	movq	-960(%rbp), %rax
+	movq	-952(%rbp), %rdx
+	movq	%rax, 80(%rbx)
+	movq	%rdx, 88(%rbx)
+	movq	-944(%rbp), %rax
+	movq	-936(%rbp), %rdx
+	movq	%rax, 96(%rbx)
+	movq	%rdx, 104(%rbx)
+	movq	-928(%rbp), %rax
+	movq	-920(%rbp), %rdx
+	movq	%rax, 112(%rbx)
+	movq	%rdx, 120(%rbx)
+	movq	-912(%rbp), %rax
+	movq	-904(%rbp), %rdx
+	movq	%rax, 128(%rbx)
+	movq	%rdx, 136(%rbx)
+	addl	$1, -888(%rbp)
+.L19:
+	leaq	-160(%rbp), %rax
+	leaq	.LC8(%rip), %rsi
+	movq	%rax, %rdi
+	call	strcmp@PLT
+	testl	%eax, %eax
+	jne	.L20
+	movq	stdin(%rip), %rdx
+	leaq	-160(%rbp), %rax
+	movl	$120, %esi
+	movq	%rax, %rdi
+	call	fgets@PLT
+	movl	-888(%rbp), %eax
+	movslq	%eax, %rdx
+	movq	%rdx, %rax
+	salq	$3, %rax
+	addq	%rdx, %rax
+	salq	$4, %rax
+	leaq	-16(%rbp), %rcx
+	addq	%rcx, %rax
+	leaq	-864(%rax), %rbx
+	leaq	-1040(%rbp), %rax
+	leaq	-160(%rbp), %rdx
+	movq	%rdx, %rsi
+	movq	%rax, %rdi
+	call	FLOAT
+	movq	-1040(%rbp), %rax
+	movq	-1032(%rbp), %rdx
+	movq	%rax, (%rbx)
+	movq	%rdx, 8(%rbx)
+	movq	-1024(%rbp), %rax
+	movq	-1016(%rbp), %rdx
+	movq	%rax, 16(%rbx)
+	movq	%rdx, 24(%rbx)
+	movq	-1008(%rbp), %rax
+	movq	-1000(%rbp), %rdx
+	movq	%rax, 32(%rbx)
+	movq	%rdx, 40(%rbx)
+	movq	-992(%rbp), %rax
+	movq	-984(%rbp), %rdx
+	movq	%rax, 48(%rbx)
+	movq	%rdx, 56(%rbx)
+	movq	-976(%rbp), %rax
+	movq	-968(%rbp), %rdx
+	movq	%rax, 64(%rbx)
+	movq	%rdx, 72(%rbx)
+	movq	-960(%rbp), %rax
+	movq	-952(%rbp), %rdx
+	movq	%rax, 80(%rbx)
+	movq	%rdx, 88(%rbx)
+	movq	-944(%rbp), %rax
+	movq	-936(%rbp), %rdx
+	movq	%rax, 96(%rbx)
+	movq	%rdx, 104(%rbx)
+	movq	-928(%rbp), %rax
+	movq	-920(%rbp), %rdx
+	movq	%rax, 112(%rbx)
+	movq	%rdx, 120(%rbx)
+	movq	-912(%rbp), %rax
+	movq	-904(%rbp), %rdx
+	movq	%rax, 128(%rbx)
+	movq	%rdx, 136(%rbx)
+	addl	$1, -888(%rbp)
+.L20:
+	movq	stdin(%rip), %rdx
+	leaq	-160(%rbp), %rax
+	movl	$120, %esi
+	movq	%rax, %rdi
+	call	fgets@PLT
+.L18:
+	leaq	-160(%rbp), %rax
+	leaq	.LC9(%rip), %rsi
+	movq	%rax, %rdi
+	call	strcmp@PLT
+	testl	%eax, %eax
+	jne	.L21
+	leaq	.LC10(%rip), %rdi
+	call	puts@PLT
+	movq	stdin(%rip), %rdx
+	leaq	-160(%rbp), %rax
+	movl	$120, %esi
+	movq	%rax, %rdi
+	call	fgets@PLT
+	jmp	.L22
+.L29:
+	movl	$0, -888(%rbp)
+	jmp	.L23
+.L28:
+	cmpl	$5, -888(%rbp)
+	jne	.L24
+	leaq	.LC11(%rip), %rdi
+	call	puts@PLT
+.L24:
+	leaq	-880(%rbp), %rcx
+	movl	-888(%rbp), %eax
+	movslq	%eax, %rdx
+	movq	%rdx, %rax
+	salq	$3, %rax
+	addq	%rdx, %rax
+	salq	$4, %rax
+	addq	%rcx, %rax
+	leaq	4(%rax), %rdx
+	leaq	-160(%rbp), %rax
+	movq	%rdx, %rsi
+	movq	%rax, %rdi
+	call	strcmp@PLT
+	testl	%eax, %eax
+	jne	.L25
+	movl	-888(%rbp), %eax
+	movslq	%eax, %rdx
+	movq	%rdx, %rax
+	salq	$3, %rax
+	addq	%rdx, %rax
+	salq	$4, %rax
+	leaq	-16(%rbp), %rcx
+	addq	%rcx, %rax
+	subq	$864, %rax
+	movl	(%rax), %eax
+	testl	%eax, %eax
+	jne	.L25
+	movl	-888(%rbp), %eax
+	movslq	%eax, %rdx
+	movq	%rdx, %rax
+	salq	$3, %rax
+	addq	%rdx, %rax
+	salq	$4, %rax
+	leaq	-16(%rbp), %rcx
+	addq	%rcx, %rax
+	subq	$736, %rax
+	movl	(%rax), %eax
+	movl	%eax, %esi
+	leaq	.LC12(%rip), %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	jmp	.L26
+.L25:
+	leaq	-880(%rbp), %rcx
+	movl	-888(%rbp), %eax
+	movslq	%eax, %rdx
+	movq	%rdx, %rax
+	salq	$3, %rax
+	addq	%rdx, %rax
+	salq	$4, %rax
+	addq	%rcx, %rax
+	leaq	4(%rax), %rdx
+	leaq	-160(%rbp), %rax
+	movq	%rdx, %rsi
+	movq	%rax, %rdi
+	call	strcmp@PLT
+	testl	%eax, %eax
+	jne	.L27
+	movl	-888(%rbp), %eax
+	movslq	%eax, %rdx
+	movq	%rdx, %rax
+	salq	$3, %rax
+	addq	%rdx, %rax
+	salq	$4, %rax
+	leaq	-16(%rbp), %rcx
+	addq	%rcx, %rax
+	subq	$864, %rax
+	movl	(%rax), %eax
+	cmpl	$1, %eax
+	jne	.L27
+	movl	-888(%rbp), %eax
+	movslq	%eax, %rdx
+	movq	%rdx, %rax
+	salq	$3, %rax
+	addq	%rdx, %rax
+	salq	$4, %rax
+	leaq	-16(%rbp), %rcx
+	addq	%rcx, %rax
+	subq	$728, %rax
+	movq	(%rax), %rax
+	movq	%rax, %xmm0
+	leaq	.LC13(%rip), %rdi
+	movl	$1, %eax
+	call	printf@PLT
+	jmp	.L26
+.L27:
+	addl	$1, -888(%rbp)
+.L23:
+	cmpl	$5, -888(%rbp)
+	jle	.L28
+.L26:
+	movq	stdin(%rip), %rdx
+	leaq	-160(%rbp), %rax
+	movl	$120, %esi
+	movq	%rax, %rdi
+	call	fgets@PLT
+.L22:
+	leaq	-160(%rbp), %rax
+	leaq	.LC9(%rip), %rsi
+	movq	%rax, %rdi
+	call	strcmp@PLT
+	testl	%eax, %eax
+	jne	.L29
+	movl	$0, %eax
+	movq	-24(%rbp), %rsi
+	xorq	%fs:40, %rsi
+	je	.L31
+	call	__stack_chk_fail@PLT
+.L31:
+	addq	$1032, %rsp
+	popq	%rbx
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE2:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0"
+	.section	.note.GNU-stack,"",@progbits
+	.section	.note.gnu.property,"a"
+	.align 8
+	.long	 1f - 0f
+	.long	 4f - 1f
+	.long	 5
+0:
+	.string	 "GNU"
+1:
+	.align 8
+	.long	 0xc0000002
+	.long	 3f - 2f
+2:
+	.long	 0x3
+3:
+	.align 8
+4:

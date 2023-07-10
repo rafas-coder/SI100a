@@ -1,0 +1,15 @@
+---Etapa de treinamento---
+pergunta Quanto eh 2x2?
+Alternativa correta eh 1?
+Alternativa correta eh 2?
+Alternativa correta eh 4?
+pergunta Quanto eh 0.5x1?
+Alternativa correta eh 0.5?
+pergunta Quanto eh 0.5x2?
+Alternativa correta eh 1.0?
+pergunta Quanto eh 4x4?
+Alternativa correta eh 16?
+pergunta Quanto eh 10x10?
+Alternativa correta eh 100?
+---Etapa de testes---
+A resposta eh: 4Me desculpe, ainda não fui treinado para responder essa pergunta.A resposta eh: 0.5Me desculpe, ainda não fui treinado para responder essa pergunta.A resposta eh: 1.0Me desculpe, ainda não fui treinado para responder essa pergunta.A resposta eh: 16Me desculpe, ainda não fui treinado para responder essa pergunta.A resposta eh: 100Me desculpe, ainda não fui treinado para responder essa pergunta.
